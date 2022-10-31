@@ -28,6 +28,7 @@ namespace is_1_20_KostromitinDD
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+            Application.Run(new MainForm());//<<-- открытие второй формы, после закрытия перво
         }
     }
 }

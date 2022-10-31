@@ -14,9 +14,12 @@ namespace is_1_20_KostromitinDD
     public partial class Form1 : MetroFramework.Forms.MetroForm
     {
         // строка подключения к БД
-        string connStr = "server=10.90.12.110;port=33333;user=st_1_20_17;database=is_1_20_st17_KURS;password=32424167;";
+        string connStr = "server=chuc.caseum.ru;port=33333;user=st_1_20_17;database=is_1_20_st17_KURS;password=32424167;";
         //Переменная соединения
         MySqlConnection conn;
+
+
+
 
         static string sha256(string randomString)
         {
@@ -59,6 +62,10 @@ namespace is_1_20_KostromitinDD
         public Form1()
         {
             InitializeComponent();
+            textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None; //скрытие рамок у textbox
+            textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None; //скрытие рамок у textbox
+
+            textBox2.UseSystemPasswordChar = true; //точки вместо пароля
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -96,10 +103,6 @@ namespace is_1_20_KostromitinDD
 
                 MainForm aut = new MainForm();
                 aut.ShowDialog();
-
-
-                this.Close();
-
             }
             else
             {
@@ -107,6 +110,7 @@ namespace is_1_20_KostromitinDD
                 MessageBox.Show("Неверные данные авторизации!");
             }
         }
+
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -127,5 +131,6 @@ namespace is_1_20_KostromitinDD
         {
             conn = new MySqlConnection(connStr);
         }
+
     }
 }
