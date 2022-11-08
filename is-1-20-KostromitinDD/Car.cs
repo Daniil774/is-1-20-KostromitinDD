@@ -11,65 +11,93 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 
 
 namespace is_1_20_KostromitinDD
 {
     public partial class Car : MetroFramework.Forms.MetroForm
     {
-        enum Row
-        {
-            Existed,
-            New,
-            Modified,
-            ModifiedNew,
-            Deleted
-        }
-       
-
+        SqlCommand Command;
+        SqlDataAdapter Adapter;
+        SqlCommandBuilder Builder;
+        DataSet Ds;
+        DataTable Table;
         public Car()
         {
             InitializeComponent();
+            select();
         }
 
-        private void CreateColumns()
+        public void select()
         {
-            dataGridView1.Columns.Add("id_car", "id_car");
-            dataGridView1.Columns.Add("car_name", "Название авто");
-            dataGridView1.Columns.Add("car_number", "Номер авто");
-            dataGridView1.Columns.Add("car_body", "Тип кузова");
-            dataGridView1.Columns.Add("car_color", "Цвет авто");
-            dataGridView1.Columns.Add("years_of_release", "Год выпуска авто");
-            dataGridView1.Columns.Add("car_price", "Стоимость аренды");
-            dataGridView1.Columns.Add("IsNew", String.Empty);
-        }
+            DataSet ds;
+            ds = new DataSet();
+            string connectionString = "server=chuc.caseum.ru;port=33333;user=st_1_20_17;database=is_1_20_st17_KURS;password=32424167;";
+            MySqlConnection connection = new MySqlConnection(connectionString);
 
-        private void ReadSingleRow(DataGridView dgv, IDataRecord record)
-        {
-            dgv.Rows.Add(record.GetInt32(0), record.GetString(1), record.GetString(2), record.GetString(3), record.GetString(4),
-                record.GetString(5), record.GetString(6), Row.ModifiedNew);
-        }
-
-        private void RedreshDataGrid(DataGridView dgv)
-        {
-            dgv.Rows.Clear();
-
-            string queryString = $"Select * From Cars";
-
-            
+            MySqlCommand command = new MySqlCommand();
+            string commandString = "SELECT * FROM Cars;";
+            command.CommandText = commandString;
+            command.Connection = connection;
+            MySqlDataReader reader;
+            try
+            {
+                command.Connection.Open();
+                reader = command.ExecuteReader();
+                this.dataGridView1.Columns.Add("car_name", "Название авто");
+                this.dataGridView1.Columns["car_name"].Width = 165;
+                this.dataGridView1.Columns.Add("car_number", "Номер авто");
+                this.dataGridView1.Columns["car_number"].Width = 80;
+                this.dataGridView1.Columns.Add("car_body", "Тип кузова");
+                this.dataGridView1.Columns["car_body"].Width = 80;
+                this.dataGridView1.Columns.Add("car_color", "Цвет авто");
+                this.dataGridView1.Columns["car_color"].Width = 80;
+                this.dataGridView1.Columns.Add("years_of_release", "Год выпуска");
+                this.dataGridView1.Columns["years_of_release"].Width = 80;
+                this.dataGridView1.Columns.Add("car_price", "Стоимость аренды авто");
+                this.dataGridView1.Columns["car_price"].Width = 80;
+                while (reader.Read())
+                {
+                    dataGridView1.Rows.Add(reader["car_name"].ToString(), reader["car_number"].ToString(), reader["car_body"].ToString(),
+                        reader["car_color"].ToString(), reader["years_of_release"].ToString(), reader["car_price"].ToString());
+                }
+                reader.Close();
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Error: \r\n{0}", ex.ToString());
+            }
+            finally
+            {
+                command.Connection.Close();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            string connectionString = "server=chuc.caseum.ru;port=33333;user=st_1_20_17;database=is_1_20_st17_KURS;password=32424167;";
+            string sql = "SELECT * FROM Cars";
+            SqlConnection connection = new SqlConnection(connectionString);
+            connection.Open();
+            Command = new SqlCommand(sql, connection);
+            Adapter = new SqlDataAdapter(Command);
+            Builder = new SqlCommandBuilder(Adapter);
+            Ds = new DataSet();
+            Adapter.Fill(Ds, "Cars");
+            Table = Ds.Tables["Cars"];
+            connection.Close();
+            dataGridView1.DataSource = Ds.Tables["Cars"];
+            dataGridView1.ReadOnly = true;
+            button5.Enabled = false;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             MainForm f2 = new MainForm();              //кнопка на возвращение окна авторизации
             f2.FormClosed += formClosed;
-            this.Hide();
-            f2.Show();
+            this.Close();
         }
         void formClosed(object sender, FormClosedEventArgs e)
         {
@@ -78,11 +106,34 @@ namespace is_1_20_KostromitinDD
 
         private void Car_Load(object sender, EventArgs e)
         {
-
+        
         }
-        private void GetList(int id_stud)
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Вы действительно хотите удалить эту запись?", "Delete", MessageBoxButtons.YesNo) == DialogResult.Yes)
+
+            foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+            {
+                dataGridView1.Rows.Remove(row);
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
         {
             
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+           
+        }
+        private void dgv_leftPanel_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int index = dataGridView1.CurrentCell.RowIndex;
+            dataGridView1.Rows[index].Selected = true;
+            dataGridView1.RowsDefaultCellStyle.SelectionForeColor = Color.Red;
+        }
+
     }
 }
