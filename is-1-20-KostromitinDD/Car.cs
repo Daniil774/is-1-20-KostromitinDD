@@ -16,7 +16,7 @@ using System.Data.SqlClient;
 
 namespace is_1_20_KostromitinDD
 {
-    public partial class Car : MetroFramework.Forms.MetroForm
+    public partial class Car : Form
     {
         SqlCommand Command;
         SqlDataAdapter Adapter;
@@ -93,7 +93,7 @@ namespace is_1_20_KostromitinDD
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        public void button2_Click(object sender, EventArgs e)
         {
             MainForm f2 = new MainForm();              //кнопка на возвращение окна авторизации
             f2.FormClosed += formClosed;
@@ -124,7 +124,7 @@ namespace is_1_20_KostromitinDD
             
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        public void button3_Click(object sender, EventArgs e)
         {
            
         }

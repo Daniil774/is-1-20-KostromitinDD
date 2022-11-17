@@ -12,24 +12,59 @@ using MySql.Data.MySqlClient;
 
 namespace is_1_20_KostromitinDD
 {
-    public partial class MainForm : MetroFramework.Forms.MetroForm
+    public partial class MainForm : Form
     {
         public MainForm()
         {
             InitializeComponent();
         }
 
+        public void ManagerRole(string role)
+        {
+            switch (role)
+            {
+                //И в зависимости от того, какая роль (цифра) хранится в поле класса и передана в метод, показываются те или иные кнопки.
+                //Вы можете скрыть их и не отображать вообще, здесь они просто выключены
+                case "Начальник гаража":
+                    button1.Enabled = false;
+                    button2.Enabled = true;
+                    button3.Enabled = false;
+                    button4.Enabled = true;
+                    break;
+
+                case "Директор":
+                    button1.Enabled = true;
+                    button2.Enabled = true;
+                    button3.Enabled = true;
+                    button4.Enabled = true;
+                    break;
+
+                case "Директор по персоналу":
+                    button1.Enabled = false;
+                    button2.Enabled = false;
+                    button3.Enabled = true;
+                    button4.Enabled = true;
+                    break;
+
+                case "Младший менеджер":
+                    button1.Enabled = false;
+                    button2.Enabled = true;
+                    button3.Enabled = false;
+                    button4.Enabled = true;
+                    break;
+            }
+        }
         private void MainForm_Load(object sender, EventArgs e)
         {
             this.Hide();
-         
-
-            if(Auth.auth)
+            if (Auth.auth)
             {
                 this.Show();
                 label1.Text = $"Добро пожаловать, {Auth.auth_fio}";
                 label1.ForeColor = Color.Black;
+                ManagerRole(Auth.auth_role);
             }
+  
         }
         private void Form2_FormClosed(object sender, FormClosedEventArgs e)
         {

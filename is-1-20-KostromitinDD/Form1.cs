@@ -11,7 +11,7 @@ using MySql.Data.MySqlClient;
 
 namespace is_1_20_KostromitinDD
 {
-    public partial class Form1 : MetroFramework.Forms.MetroForm
+    public partial class Form1 : Form
     {
         // строка подключения к БД
         string connStr = "server=chuc.caseum.ru;port=33333;user=st_1_20_17;database=is_1_20_st17_KURS;password=32424167;";
@@ -53,7 +53,7 @@ namespace is_1_20_KostromitinDD
                 // элементы массива [] - это значения столбцов из запроса SELECT
                 Auth.auth_id = reader[3].ToString();
                 Auth.auth_fio = reader[1].ToString();
-                //Auth.auth_role = Convert.ToInt32(reader[4].ToString());
+                Auth.auth_role = reader[2].ToString();
             }
             reader.Close(); // закрываем reader
             // закрываем соединение с БД
@@ -103,6 +103,7 @@ namespace is_1_20_KostromitinDD
 
                 MainForm aut = new MainForm();
                 aut.ShowDialog();
+                
             }
             else
             {
