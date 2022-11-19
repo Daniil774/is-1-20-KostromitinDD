@@ -18,9 +18,6 @@ namespace is_1_20_KostromitinDD
         //Переменная соединения
         MySqlConnection conn;
 
-
-
-
         static string sha256(string randomString)
         {
             //Тут происходит криптографическая магия. Смысл данного метода заключается в том, что строка залетает в метод
@@ -63,7 +60,8 @@ namespace is_1_20_KostromitinDD
         {
             InitializeComponent();
             textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None; //скрытие рамок у textbox
-            textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None; //скрытие рамок у textbox
+            textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;//скрытие рамок у textbox
 
             textBox2.UseSystemPasswordChar = true; //точки вместо пароля
         }
@@ -102,15 +100,17 @@ namespace is_1_20_KostromitinDD
                 //Закрываем форму
 
                 MainForm aut = new MainForm();
-                aut.ShowDialog();
-                
+                aut.Show();
+                this.Close();
             }
             else
             {
                 //Отобразить сообщение о том, что авторизаия неуспешна
                 MessageBox.Show("Неверные данные авторизации!");
             }
+            
         }
+
 
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -133,5 +133,19 @@ namespace is_1_20_KostromitinDD
             conn = new MySqlConnection(connStr);
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+        }
     }
 }

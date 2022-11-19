@@ -63,6 +63,7 @@ namespace is_1_20_KostromitinDD
                 label1.Text = $"Добро пожаловать, {Auth.auth_fio}";
                 label1.ForeColor = Color.Black;
                 ManagerRole(Auth.auth_role);
+                label2.Text = $"Ваша должность, { Auth.auth_role }";
             }
   
         }
@@ -97,16 +98,24 @@ namespace is_1_20_KostromitinDD
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Form1 f2 = new Form1();              //кнопка на возвращение окна авторизации
-            f2.FormClosed += formClosed;
-            this.Close();
-            
-        }
-        void formClosed(object sender, FormClosedEventArgs e)
-        {
-            this.Show();
+            Hide();
+            Form1 f = new Form1();
+            f.Show();
         }
 
-        
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }
