@@ -23,8 +23,6 @@ namespace is_1_20_KostromitinDD
         {
             switch (role)
             {
-                //И в зависимости от того, какая роль (цифра) хранится в поле класса и передана в метод, показываются те или иные кнопки.
-                //Вы можете скрыть их и не отображать вообще, здесь они просто выключены
                 case "Начальник гаража":
                     button1.Enabled = false;
                     button2.Enabled = true;
@@ -69,11 +67,7 @@ namespace is_1_20_KostromitinDD
         }
         private void Form2_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Form ifrm = Application.OpenForms[0];
-            ifrm.StartPosition = FormStartPosition.Manual;
-            ifrm.Left = this.Left;
-            ifrm.Top = this.Top;
-            ifrm.Show();
+            
         }
 
         private void label1_Click(object sender, EventArgs e)
