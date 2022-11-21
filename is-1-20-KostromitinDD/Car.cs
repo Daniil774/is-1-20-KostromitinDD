@@ -23,11 +23,12 @@ namespace is_1_20_KostromitinDD
         SqlCommandBuilder Builder;
         DataSet Ds;
         DataTable Table;
+
         public Car()
         {
             InitializeComponent();
             select();
-        }
+        } 
 
         public void select()
         {
@@ -76,21 +77,7 @@ namespace is_1_20_KostromitinDD
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string connectionString = "server=chuc.caseum.ru;port=33333;user=st_1_20_17;database=is_1_20_st17_KURS;password=32424167;";
-            string sql = "SELECT * FROM Cars";
-            SqlConnection connection = new SqlConnection(connectionString);
-            connection.Open();
-            Command = new SqlCommand(sql, connection);
-            Adapter = new SqlDataAdapter(Command);
-            Builder = new SqlCommandBuilder(Adapter);
-            Ds = new DataSet();
-            Adapter.Fill(Ds, "Cars");
-            Table = Ds.Tables["Cars"];
-            connection.Close();
-            dataGridView1.DataSource = Ds.Tables["Cars"];
-            dataGridView1.ReadOnly = true;
-            button5.Enabled = false;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            
         }
 
         public void button2_Click(object sender, EventArgs e)
@@ -121,18 +108,12 @@ namespace is_1_20_KostromitinDD
 
         private void button5_Click(object sender, EventArgs e)
         {
-            
+          
         }
 
         public void button3_Click(object sender, EventArgs e)
         {
            
-        }
-        private void dgv_leftPanel_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            int index = dataGridView1.CurrentCell.RowIndex;
-            dataGridView1.Rows[index].Selected = true;
-            dataGridView1.RowsDefaultCellStyle.SelectionForeColor = Color.Red;
         }
 
     }

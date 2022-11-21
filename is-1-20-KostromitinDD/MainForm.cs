@@ -111,5 +111,7 @@ namespace is_1_20_KostromitinDD
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private Car activeForm = null;
     }
 }

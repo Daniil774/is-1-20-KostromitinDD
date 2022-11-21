@@ -173,7 +173,7 @@ namespace is_1_20_KostromitinDD
         {
             label2.Text = frm2.Left.ToString();
             frm2.Left -= 10;
-            if( frm2.Left <= 630 )
+            if( frm2.Left <= 780 )
             {
                 timer2.Stop();
             }
@@ -183,6 +183,11 @@ namespace is_1_20_KostromitinDD
         {
             timer1.Start();
             frm2.ShowDialog();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
