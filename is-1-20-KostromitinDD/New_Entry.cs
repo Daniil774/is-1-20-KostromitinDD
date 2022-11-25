@@ -25,24 +25,110 @@ namespace is_1_20_KostromitinDD
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string login = textBox1.Text;
-            string password = textBox2.Text;
-            string sql = $"INSERT INTO Cars(id_car, car_name)" + $"VALUES ('{login}', '{password}')";
+            string tb1 = textBox1.Text;
+            string tb2 = textBox2.Text;
+            string tb3 = textBox3.Text;
+            string tb4 = textBox4.Text;
+            string tb5 = textBox5.Text;
+            string tb6 = textBox6.Text;
+            string tb7 = textBox7.Text;
+            string sql = $"INSERT INTO Cars(id_car, car_name, car_number, car_body, car_color, years_of_release, car_price)"
+                + $"VALUES ('{tb1}', '{tb2}', '{tb3}', '{tb4}', '{tb5}', '{tb6}', '{tb7}')";
             conn.Open();
             MySqlCommand command = new MySqlCommand(sql, conn);
             command.ExecuteNonQuery();
             conn.Close();
+            Update();
             MessageBox.Show("Авто успешно добавлено.");
         }
-
         private void New_Entry_Load(object sender, EventArgs e)
         {
             conn = new MySqlConnection(connStr);
+            //перемещение формы
+            this.MouseDown += new MouseEventHandler(Form1_MouseDown);
+        }
+
+        //перемещение формы
+        void Form1_MouseDown(object sender, MouseEventArgs e)
+        {
+            base.Capture = false;
+            Message m = Message.Create(base.Handle, 0xa1, new IntPtr(2), IntPtr.Zero);
+            this.WndProc(ref m);
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            Close();
+            Close(); 
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox7_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

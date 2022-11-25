@@ -59,21 +59,12 @@ namespace is_1_20_KostromitinDD
             if (Auth.auth)
             {
                 this.Show();
-                label1.Text = $"Добро пожаловать, {Auth.auth_fio}";
+                label1.Text = $"ФИО: {Auth.auth_fio}";
                 ManagerRole(Auth.auth_role);
-                label2.Text = $"Ваша должность, { Auth.auth_role }";
+                label2.Text = $"Должность: { Auth.auth_role }";
             }
-            this.WindowState = FormWindowState.Maximized;
-        }
-        private void Form2_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
         private void button1_Click(object sender, EventArgs e)
         {
            
@@ -82,14 +73,11 @@ namespace is_1_20_KostromitinDD
         private void button2_Click(object sender, EventArgs e)
         {
             openSecondForminForm(new Car());
-            //Car dlg = new Car();
-            //dlg.Show(this);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Staff stf = new Staff();
-            stf.Show(this);
+            openSecondForminForm(new Staff());
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -99,23 +87,14 @@ namespace is_1_20_KostromitinDD
             f.Show();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button6_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
+        //Открытие формы на panel3
         private void openSecondForminForm(Form childForm)
         {
-            //Открытие форм
             if (currentChildForm != null)
             {
                 currentChildForm.Close();
@@ -142,6 +121,14 @@ namespace is_1_20_KostromitinDD
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }

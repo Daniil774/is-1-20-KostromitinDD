@@ -111,6 +111,7 @@ namespace is_1_20_KostromitinDD
             }
         }
 
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
            

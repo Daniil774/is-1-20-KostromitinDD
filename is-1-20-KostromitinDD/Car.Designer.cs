@@ -33,11 +33,6 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.DeleteTEXT = new System.Windows.Forms.TextBox();
-            this.UpdatetextBox = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,72 +87,24 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(12, 209);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(191, 20);
-            this.textBox1.TabIndex = 7;
-            this.textBox1.Text = "id_car";
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(12, 235);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(191, 20);
-            this.textBox2.TabIndex = 8;
-            this.textBox2.Text = "car_name";
-            // 
-            // DeleteTEXT
-            // 
-            this.DeleteTEXT.Location = new System.Drawing.Point(12, 261);
-            this.DeleteTEXT.Name = "DeleteTEXT";
-            this.DeleteTEXT.Size = new System.Drawing.Size(191, 20);
-            this.DeleteTEXT.TabIndex = 10;
-            this.DeleteTEXT.Text = "delete in id_car";
-            this.DeleteTEXT.TextChanged += new System.EventHandler(this.DeleteTEXT_TextChanged);
-            // 
-            // UpdatetextBox
-            // 
-            this.UpdatetextBox.Location = new System.Drawing.Point(12, 287);
-            this.UpdatetextBox.Name = "UpdatetextBox";
-            this.UpdatetextBox.Size = new System.Drawing.Size(191, 20);
-            this.UpdatetextBox.TabIndex = 11;
-            this.UpdatetextBox.Text = "update";
-            this.UpdatetextBox.TextChanged += new System.EventHandler(this.UpdatetextBox_TextChanged);
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(12, 313);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(191, 20);
-            this.textBox3.TabIndex = 12;
-            this.textBox3.Text = "update";
-            // 
             // Car
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.UpdatetextBox);
-            this.Controls.Add(this.DeleteTEXT);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(23)))), ((int)(((byte)(26)))));
+            this.ClientSize = new System.Drawing.Size(800, 215);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Car";
             this.Text = "Автомобили";
             this.Load += new System.EventHandler(this.Car_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -167,10 +114,5 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox DeleteTEXT;
-        private System.Windows.Forms.TextBox UpdatetextBox;
-        private System.Windows.Forms.TextBox textBox3;
     }
 }

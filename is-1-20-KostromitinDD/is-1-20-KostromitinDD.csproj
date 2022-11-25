@@ -7,7 +7,7 @@
     <ProjectGuid>{5F1873DF-521C-4D41-996D-FB375117E7C1}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>is_1_20_KostromitinDD</RootNamespace>
-    <AssemblyName>is-1-20-KostromitinDD</AssemblyName>
+    <AssemblyName>а</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -93,6 +93,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Delete_Entry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Delete_Entry.Designer.cs">
+      <DependentUpon>Delete_Entry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Edit_Entry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Edit_Entry.Designer.cs">
+      <DependentUpon>Edit_Entry.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,12 +129,6 @@
     <Compile Include="Staff.Designer.cs">
       <DependentUpon>Staff.cs</DependentUpon>
     </Compile>
-    <Compile Include="Registration.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Registration.Designer.cs">
-      <DependentUpon>Registration.cs</DependentUpon>
-    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,14 +140,17 @@
     <EmbeddedResource Include="Car.resx">
       <DependentUpon>Car.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Delete_Entry.resx">
+      <DependentUpon>Delete_Entry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit_Entry.resx">
+      <DependentUpon>Edit_Entry.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="New_Entry.resx">
       <DependentUpon>New_Entry.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Registration.resx">
-      <DependentUpon>Registration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

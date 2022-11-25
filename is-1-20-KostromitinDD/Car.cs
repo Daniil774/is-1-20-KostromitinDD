@@ -12,16 +12,19 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Data.SqlClient;
 using System.Drawing.Drawing2D;
+using System.Reflection;
 
 namespace is_1_20_KostromitinDD
 {
     public partial class Car : Form
     {
+        private Form currentChildForm;
         string connStr = "server=chuc.caseum.ru;port=33333;user=st_1_20_17;database=is_1_20_st17_KURS;password=32424167;";
         //string connStr = "server=10.90.12.110;port=33333;user=st_1_20_17;database=is_1_20_st17_KURS;password=32424167;";
 
         MySqlConnection conn;
 
+        //хеширование
         static string sha256(string randomString)
         {
             var crypt = new System.Security.Cryptography.SHA256Managed();
@@ -44,14 +47,12 @@ namespace is_1_20_KostromitinDD
             conn = new MySqlConnection(connStr);
             //закругление
             this.Region = new Region(RoundedRect(new Rectangle(0, 0, this.Width, this.Height),10));
-        }
-        private void fMain_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            reload_list();
+            dataGridView1.RowHeadersVisible = false;
         }
 
+        //заполнение DataGridView
         public void select()
-        {
+        {    
             DataSet ds;
             ds = new DataSet();
             string connectionString = "server=chuc.caseum.ru;port=33333;user=st_1_20_17;database=is_1_20_st17_KURS;password=32424167;";
@@ -86,7 +87,6 @@ namespace is_1_20_KostromitinDD
                         reader["car_color"].ToString(), reader["years_of_release"].ToString(), reader["car_price"].ToString());
                 }
                 reader.Close();
-                dataGridView1.AllowUserToAddRows = false;
             }
             catch (MySqlException ex)
             {
@@ -98,18 +98,53 @@ namespace is_1_20_KostromitinDD
             }
         }
 
+        //добавление в таблицу
         private void button1_Click(object sender, EventArgs e)
         {
-            //добавление в таблицу
             New_Entry aut = new New_Entry();
             aut.FormClosed += Update;
             aut.Show();
         }
+
+        //кнопка на возвращение 
+        public void button2_Click(object sender, EventArgs e)
+        {
+            Hide();
+            MainForm f = new MainForm();
+            f.Show();
+            f.Close();
+        }
+
+        //обновление записей
+        public void button3_Click(object sender, EventArgs e)
+        {
+            Edit_Entry aut = new Edit_Entry();
+            aut.FormClosed += Update;
+            aut.Show();
+        }
+
+        //удаление из таблицы
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Delete_Entry aut = new Delete_Entry();
+            aut.FormClosed += Update;
+            aut.Show();
+        }
+
+        //обновление DataGridView
+        void reload_list()
+        {
+            dataGridView1.Rows.Clear();
+            readnig();
+        }
+      
         void Update(object sender, FormClosedEventArgs e)
         {
             reload_list();
         }
-        void Update12()
+
+        //метод получения записей, который вновь заполнит таблицу
+        void readnig()
         {
             DataSet ds;
             ds = new DataSet();
@@ -131,65 +166,14 @@ namespace is_1_20_KostromitinDD
                         reader["car_color"].ToString(), reader["years_of_release"].ToString(), reader["car_price"].ToString());
                 }
                 reader.Close();
-                dataGridView1.AllowUserToAddRows = false;
             }
-            catch (MySqlException ex)
-            {
-                Console.WriteLine("Error: \r\n{0}", ex.ToString());
-            }
-            finally
+            catch 
             {
                 command.Connection.Close();
             }
         }
 
-        public void button2_Click(object sender, EventArgs e)
-        {
-            //кнопка на возвращение 
-            MainForm f2 = new MainForm();             
-            f2.FormClosed += formClosed;
-            this.Close();    
-        }
-      
-        void formClosed(object sender, FormClosedEventArgs e)
-        {
-            this.Show();
-        }
-
-        public void button3_Click(object sender, EventArgs e)
-        {
-            //обновление записей
-            string tb = UpdatetextBox.Text;
-            string tb3 = textBox3.Text;
-            string sql = $"UPDATE Cars SET id_car = {tb3} WHERE id_car = {tb}";
-            conn.Open();
-            MySqlCommand command = new MySqlCommand(sql, conn);
-            command.ExecuteNonQuery();
-            conn.Close();
-            //обновление dataGridView
-            reload_list();
-            MessageBox.Show("Данные автомобиля успешно обновлены.");           
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            //удаление из таблицы
-            string tb = DeleteTEXT.Text;
-            string sql = $"DELETE FROM Cars WHERE id_car = {tb}";
-            conn.Open();
-            MySqlCommand command = new MySqlCommand(sql, conn);
-            command.ExecuteNonQuery();
-            conn.Close();
-            //обновление dataGridView
-            reload_list();
-            MessageBox.Show("Авто удалено.");
-        }
-
-        public void reload_list()
-        {
-            dataGridView1.Rows.Clear();
-            Update12();
-        }
+        //закругление
         public static GraphicsPath RoundedRect(Rectangle baseRect, int radius)
         {
             var diameter = radius * 2;
@@ -230,6 +214,11 @@ namespace is_1_20_KostromitinDD
         public void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
