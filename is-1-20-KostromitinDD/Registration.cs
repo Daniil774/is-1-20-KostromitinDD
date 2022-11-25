@@ -19,8 +19,8 @@ namespace is_1_20_KostromitinDD
             InitializeComponent();
         }
 
-        //string connStr = "server=chuc.caseum.ru;port=33333;user=st_1_20_17;database=is_1_20_st17_KURS;password=32424167;";
-        string connStr = "server=10.90.12.110;port=33333;user=st_1_20_17;database=is_1_20_st17_KURS;password=32424167;";
+        string connStr = "server=chuc.caseum.ru;port=33333;user=st_1_20_17;database=is_1_20_st17_KURS;password=32424167;";
+        //string connStr = "server=10.90.12.110;port=33333;user=st_1_20_17;database=is_1_20_st17_KURS;password=32424167;";
         MySqlConnection conn;
 
         static string sha256(string randomString)
@@ -48,7 +48,7 @@ namespace is_1_20_KostromitinDD
 
         private void Регистрация_Load(object sender, EventArgs e)
         {
-
+            conn = new MySqlConnection(connStr);
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -70,22 +70,21 @@ namespace is_1_20_KostromitinDD
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string login_employee = textBox1.Text;
-            string pass_employee = sha256(textBox2.Text);
-            string sql = $"INSERT INTO Staff(login_employee, pass_employee)" + $"VALUES ('{login_employee}', '{pass_employee}')";
+            string login = textBox1.Text;
+            string password = sha256(textBox2.Text);
+            string sql = $"INSERT INTO Staff(login_employee, pass_employee)" + $"VALUES ('{login}', '{password}')";
             conn.Open();
             MySqlCommand command = new MySqlCommand(sql, conn);
             command.ExecuteNonQuery();
             conn.Close();
-
         }
 
-        private void BTNaddlogin_Enter(object sender, EventArgs e)
+        private void textBox1_Enter(object sender, EventArgs e)
         {
             textBox1.Clear();
         }
 
-        private void BTNaddpass_Enter(object sender, EventArgs e)
+        private void textBox2_Enter(object sender, EventArgs e)
         {
             textBox2.Clear();
         }

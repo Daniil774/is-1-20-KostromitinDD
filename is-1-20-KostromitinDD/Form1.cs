@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,9 +15,6 @@ namespace is_1_20_KostromitinDD
 {
     public partial class Form1 : Form
     {
-
-        Registration frm2 = new Registration();
-
         // строка подключения к БД
         string connStr = "server=chuc.caseum.ru;port=33333;user=st_1_20_17;database=is_1_20_st17_KURS;password=32424167;";
         //Переменная соединения
@@ -111,18 +109,11 @@ namespace is_1_20_KostromitinDD
                 //Отобразить сообщение о том, что авторизаия неуспешна
                 MessageBox.Show("Неверные данные авторизации!");
             }
-            
         }
-
-
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
            
-        }
-        private void textBox1_Enter(object sender, EventArgs e)
-        {
-            
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -138,8 +129,8 @@ namespace is_1_20_KostromitinDD
         private void Form1_Load(object sender, EventArgs e)
         {
             conn = new MySqlConnection(connStr);
- 
         }
+
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -151,41 +142,7 @@ namespace is_1_20_KostromitinDD
             this.WindowState = FormWindowState.Minimized;// свернуть
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;// на весь экран
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            label2.Text = frm2.Left.ToString();
-            frm2.Left += 10;
-            if(frm2.Left >= 970)
-            {
-                timer1.Stop();
-                this.TopMost = false;
-                frm2.TopMost = true;
-                timer2.Start();
-            }
-        }
-
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-            label2.Text = frm2.Left.ToString();
-            frm2.Left -= 10;
-            if( frm2.Left <= 780 )
-            {
-                timer2.Stop();
-            }
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            timer1.Start();
-            frm2.ShowDialog();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
+        private void pictureBox3_Click(object sender, EventArgs e)
         {
 
         }

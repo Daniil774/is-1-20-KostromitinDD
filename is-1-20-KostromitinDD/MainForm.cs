@@ -14,11 +14,12 @@ namespace is_1_20_KostromitinDD
 {
     public partial class MainForm : Form
     {
+        private Form currentChildForm;
         public MainForm()
         {
             InitializeComponent();
         }
-
+        
         public void ManagerRole(string role)
         {
             switch (role)
@@ -59,11 +60,10 @@ namespace is_1_20_KostromitinDD
             {
                 this.Show();
                 label1.Text = $"Добро пожаловать, {Auth.auth_fio}";
-                label1.ForeColor = Color.Black;
                 ManagerRole(Auth.auth_role);
                 label2.Text = $"Ваша должность, { Auth.auth_role }";
             }
-  
+            this.WindowState = FormWindowState.Maximized;
         }
         private void Form2_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -81,13 +81,15 @@ namespace is_1_20_KostromitinDD
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Car dlg = new Car();
-            dlg.Show(this);
+            openSecondForminForm(new Car());
+            //Car dlg = new Car();
+            //dlg.Show(this);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            Staff stf = new Staff();
+            stf.Show(this);
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -111,7 +113,37 @@ namespace is_1_20_KostromitinDD
         {
             this.WindowState = FormWindowState.Minimized;
         }
+        private void openSecondForminForm(Form childForm)
+        {
+            //Открытие форм
+            if (currentChildForm != null)
+            {
+                currentChildForm.Close();
+            }
+            currentChildForm = childForm;
+            //Конец
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panel3.Controls.Add(childForm);
+            panel3.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+        }
 
-        private Car activeForm = null;
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
