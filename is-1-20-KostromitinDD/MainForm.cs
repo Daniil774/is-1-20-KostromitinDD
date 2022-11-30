@@ -19,7 +19,8 @@ namespace is_1_20_KostromitinDD
         {
             InitializeComponent();
         }
-        
+
+
         public void ManagerRole(string role)
         {
             switch (role)
@@ -129,6 +130,21 @@ namespace is_1_20_KostromitinDD
 
         }
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;// свернуть
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
         {
 
         }

@@ -67,7 +67,7 @@ namespace is_1_20_KostromitinDD
             {
                 command.Connection.Open();
                 reader = command.ExecuteReader();
-                this.dataGridView1.Columns.Add("id_car", "ид авто");
+                this.dataGridView1.Columns.Add("id_car", "Парковочное место");
                 this.dataGridView1.Columns["id_car"].Width = 80;
                 this.dataGridView1.Columns.Add("car_name", "Название авто");
                 this.dataGridView1.Columns["car_name"].Width = 165;
@@ -76,9 +76,9 @@ namespace is_1_20_KostromitinDD
                 this.dataGridView1.Columns.Add("car_body", "Тип кузова");
                 this.dataGridView1.Columns["car_body"].Width = 80;
                 this.dataGridView1.Columns.Add("car_color", "Цвет авто");
-                this.dataGridView1.Columns["car_color"].Width = 80;
+                this.dataGridView1.Columns["car_color"].Width = 55;
                 this.dataGridView1.Columns.Add("years_of_release", "Год выпуска");
-                this.dataGridView1.Columns["years_of_release"].Width = 80;
+                this.dataGridView1.Columns["years_of_release"].Width = 55;
                 this.dataGridView1.Columns.Add("car_price", "Стоимость аренды авто");
                 this.dataGridView1.Columns["car_price"].Width = 80;
                 while (reader.Read())
