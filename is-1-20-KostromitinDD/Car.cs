@@ -46,8 +46,16 @@ namespace is_1_20_KostromitinDD
         {
             conn = new MySqlConnection(connStr);
             //закругление
-            this.Region = new Region(RoundedRect(new Rectangle(0, 0, this.Width, this.Height),10));
+            this.Region = new Region(RoundedRect(new Rectangle(0, 0, this.Width, this.Height), 10));
             dataGridView1.RowHeadersVisible = false;
+
+            DataGridViewImageColumn imgColumn = new DataGridViewImageColumn();
+            imgColumn.Name = "Изображени авто";
+            dataGridView1.Columns.Add(imgColumn);
+            Image image = new Bitmap(@"C:\Users\k36127\Downloads\logoza.ru.PNG");
+            dataGridView1.Rows[0].Cells["Изображени авто"].Value = image;
+            Image image1 = new Bitmap(@"C:\Users\k36127\Downloads\imgonline-com-ua-Resize-s3pwkia3TA.JPG");
+            dataGridView1.Rows[1].Cells["Изображени авто"].Value = image1;
         }
 
         //заполнение DataGridView
@@ -200,7 +208,6 @@ namespace is_1_20_KostromitinDD
             return path;
         }
 
-
         private void DeleteTEXT_TextChanged(object sender, EventArgs e)
         {
 
@@ -220,5 +227,11 @@ namespace is_1_20_KostromitinDD
         {
             
         }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
     }
 }
