@@ -228,10 +228,19 @@ namespace is_1_20_KostromitinDD
             
         }
 
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        //выделение всеё строки
+        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            
+            int index = dataGridView1.CurrentCell.RowIndex;
+            dataGridView1.Rows[index].Selected = true;
         }
 
+        private void dataGridView1_DoubleClick(object sender, EventArgs e)
+        {
+            string image = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            Image img;
+            img = Image.FromFile(@"C:\Users\k36127\Downloads" + image);
+            pictureBox1.Image = img;
+        }
     }
 }
