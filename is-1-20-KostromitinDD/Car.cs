@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ using MySql.Data.MySqlClient;
 using System.Data.SqlClient;
 using System.Drawing.Drawing2D;
 using System.Reflection;
+using System.IO;
 
 namespace is_1_20_KostromitinDD
 {
@@ -52,9 +54,9 @@ namespace is_1_20_KostromitinDD
             DataGridViewImageColumn imgColumn = new DataGridViewImageColumn();
             imgColumn.Name = "Изображени авто";
             dataGridView1.Columns.Add(imgColumn);
-            Image image = new Bitmap(@"C:\Users\k36127\Downloads\logoza.ru.PNG");
+            Image image = new Bitmap(@"C:\Users\danii\Downloads\брабус.JPG");
             dataGridView1.Rows[0].Cells["Изображени авто"].Value = image;
-            Image image1 = new Bitmap(@"C:\Users\k36127\Downloads\imgonline-com-ua-Resize-s3pwkia3TA.JPG");
+            Image image1 = new Bitmap(@"C:\Users\danii\Downloads\макларен.ddsGv.JPG");
             dataGridView1.Rows[1].Cells["Изображени авто"].Value = image1;
         }
 
@@ -237,10 +239,22 @@ namespace is_1_20_KostromitinDD
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
-            string image = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            Image img;
-            img = Image.FromFile(@"C:\Users\k36127\Downloads" + image);
-            pictureBox1.Image = img;
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                pictureBox1.Image = new Bitmap(@"C:\Users\danii\Downloads\брабус.JPG");
+            }
+            else if (dataGridView1.SelectedRows.Count == 0)
+            {
+                pictureBox1.Image = new Bitmap(@"C:\Users\danii\Downloads\макларен.ddsGv.JPG");
+            }
+            else
+            {
+                MessageBox.Show("Фотография не открывается");
+            }
+            //MemoryStream ms = new MemoryStream();
+            //Bitmap img = (Bitmap)dataGridView1.CurrentRow.Cells[1].Value;
+            //img.Save(ms, ImageFormat.Jpeg);
+            //pictureBox1.Image = Image.FromStream(ms);
         }
     }
 }
