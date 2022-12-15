@@ -39,7 +39,7 @@ namespace is_1_20_KostromitinDD
                     button4.Enabled = true;
                     break;
 
-                case "Директор по персоналу":
+                case "Начальник по персоналу":
                     button1.Enabled = false;
                     button2.Enabled = false;
                     button3.Enabled = true;
@@ -65,10 +65,9 @@ namespace is_1_20_KostromitinDD
                 label2.Text = $"Должность: { Auth.auth_role }";
             }
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
-           
+            openSecondForminForm(new Dogovor());
         }
 
         private void button2_Click(object sender, EventArgs e)

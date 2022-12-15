@@ -11,12 +11,12 @@ using System.Windows.Forms;
 
 namespace is_1_20_KostromitinDD
 {
-    public partial class Delete_Entry : Form
+    public partial class Delete_Staff : Form
     {
         string connStr = "server=chuc.caseum.ru;port=33333;user=st_1_20_17;database=is_1_20_st17_KURS;password=32424167;";
         //string connStr = "server=10.90.12.110;port=33333;user=st_1_20_17;database=is_1_20_st17_KURS;password=32424167;";
         MySqlConnection conn;
-        public Delete_Entry()
+        public Delete_Staff()
         {
             InitializeComponent();
         }
@@ -24,17 +24,17 @@ namespace is_1_20_KostromitinDD
         private void button1_Click(object sender, EventArgs e)
         {
             string tb = textBox1.Text;
-            string sql = $"DELETE FROM Cars WHERE id_car = {tb}";
+            string sql = $"DELETE FROM Staff WHERE id_employee = {tb}";
             conn.Open();
             MySqlCommand command = new MySqlCommand(sql, conn);
             command.ExecuteNonQuery();
             conn.Close();
             //обновление DataGridView
             Update();
-            MessageBox.Show("Авто удалено.");
+            MessageBox.Show("Сотрудник удалён.");
         }
 
-        private void Delete_Entry_Load(object sender, EventArgs e)
+        private void Delete_Staff_Load(object sender, EventArgs e)
         {
             conn = new MySqlConnection(connStr);
             //перемещение формы

@@ -13,12 +13,12 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace is_1_20_KostromitinDD
 {
-    public partial class New_Entry : Form
+    public partial class New_Car : Form
     {
         string connStr = "server=chuc.caseum.ru;port=33333;user=st_1_20_17;database=is_1_20_st17_KURS;password=32424167;";
         //string connStr = "server=10.90.12.110;port=33333;user=st_1_20_17;database=is_1_20_st17_KURS;password=32424167;";
         MySqlConnection conn;
-        public New_Entry()
+        public New_Car()
         {
             InitializeComponent();
         }
@@ -32,8 +32,9 @@ namespace is_1_20_KostromitinDD
             string tb5 = textBox5.Text;
             string tb6 = textBox6.Text;
             string tb7 = textBox7.Text;
-            string sql = $"INSERT INTO Cars(id_car, car_name, car_number, car_body, car_color, years_of_release, car_price)"
-                + $"VALUES ('{tb1}', '{tb2}', '{tb3}', '{tb4}', '{tb5}', '{tb6}', '{tb7}')";
+            string tb8 = textBox8.Text;
+            string sql = $"INSERT INTO Cars(id_car, car_name, car_number, car_body, car_color, years_of_release, car_price, photo_car)"
+                + $"VALUES ('{tb1}', '{tb2}', '{tb3}', '{tb4}', '{tb5}', '{tb6}', '{tb7}', '{tb8}')";
             conn.Open();
             MySqlCommand command = new MySqlCommand(sql, conn);
             command.ExecuteNonQuery();

@@ -57,6 +57,10 @@
     <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Word.15.0.4797.1004\lib\net20\Microsoft.Office.Interop.Word.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="MySql.Data, Version=8.0.31.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.8.0.31\lib\net452\MySql.Data.dll</HintPath>
     </Reference>
@@ -88,22 +92,46 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Xceed.Document.NET, Version=2.4.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocX.2.4.0\lib\net40\Xceed.Document.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Words.NET, Version=2.4.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocX.2.4.0\lib\net40\Xceed.Words.NET.dll</HintPath>
+    </Reference>
     <Reference Include="ZstdNet, Version=1.4.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.8.0.31\lib\net452\ZstdNet.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Delete_Entry.cs">
+    <Compile Include="Delete_Car.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Delete_Entry.Designer.cs">
-      <DependentUpon>Delete_Entry.cs</DependentUpon>
+    <Compile Include="Delete_Car.Designer.cs">
+      <DependentUpon>Delete_Car.cs</DependentUpon>
     </Compile>
-    <Compile Include="Edit_Entry.cs">
+    <Compile Include="Delete_Staff.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Edit_Entry.Designer.cs">
-      <DependentUpon>Edit_Entry.cs</DependentUpon>
+    <Compile Include="Delete_Staff.Designer.cs">
+      <DependentUpon>Delete_Staff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dogovor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dogovor.Designer.cs">
+      <DependentUpon>Dogovor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Edit_Car.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Edit_Car.Designer.cs">
+      <DependentUpon>Edit_Car.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Edit_Staff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Edit_Staff.Designer.cs">
+      <DependentUpon>Edit_Staff.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -117,11 +145,17 @@
     <Compile Include="Car.Designer.cs">
       <DependentUpon>Car.cs</DependentUpon>
     </Compile>
-    <Compile Include="New_Entry.cs">
+    <Compile Include="New_Car.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="New_Entry.Designer.cs">
-      <DependentUpon>New_Entry.cs</DependentUpon>
+    <Compile Include="New_Car.Designer.cs">
+      <DependentUpon>New_Car.cs</DependentUpon>
+    </Compile>
+    <Compile Include="New_Staff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="New_Staff.Designer.cs">
+      <DependentUpon>New_Staff.cs</DependentUpon>
     </Compile>
     <Compile Include="Staff.cs">
       <SubType>Form</SubType>
@@ -140,20 +174,32 @@
     <EmbeddedResource Include="Car.resx">
       <DependentUpon>Car.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Delete_Entry.resx">
-      <DependentUpon>Delete_Entry.cs</DependentUpon>
+    <EmbeddedResource Include="Delete_Car.resx">
+      <DependentUpon>Delete_Car.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Edit_Entry.resx">
-      <DependentUpon>Edit_Entry.cs</DependentUpon>
+    <EmbeddedResource Include="Delete_Staff.resx">
+      <DependentUpon>Delete_Staff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dogovor.resx">
+      <DependentUpon>Dogovor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit_Car.resx">
+      <DependentUpon>Edit_Car.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit_Staff.resx">
+      <DependentUpon>Edit_Staff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="New_Entry.resx">
-      <DependentUpon>New_Entry.cs</DependentUpon>
+    <EmbeddedResource Include="New_Car.resx">
+      <DependentUpon>New_Car.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="New_Staff.resx">
+      <DependentUpon>New_Staff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -180,6 +226,35 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Word1">
+      <Guid>{00020905-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

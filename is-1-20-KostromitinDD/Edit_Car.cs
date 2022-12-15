@@ -12,12 +12,12 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace is_1_20_KostromitinDD
 {
-    public partial class Edit_Entry : Form
+    public partial class Edit_Car : Form
     {
         string connStr = "server=chuc.caseum.ru;port=33333;user=st_1_20_17;database=is_1_20_st17_KURS;password=32424167;";
         //string connStr = "server=10.90.12.110;port=33333;user=st_1_20_17;database=is_1_20_st17_KURS;password=32424167;";
         MySqlConnection conn;
-        public Edit_Entry()
+        public Edit_Car()
         {
             InitializeComponent();
         }
@@ -52,6 +52,26 @@ namespace is_1_20_KostromitinDD
         private void button6_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

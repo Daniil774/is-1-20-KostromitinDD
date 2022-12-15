@@ -144,6 +144,7 @@ namespace is_1_20_KostromitinDD
             this.button1.Text = "Договор аренды";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // button6
             // 
@@ -199,7 +200,7 @@ namespace is_1_20_KostromitinDD
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.label4.Font = new System.Drawing.Font("Times New Roman", 20.25F);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(3, -4);
+            this.label4.Location = new System.Drawing.Point(-5, -1);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(214, 31);
             this.label4.TabIndex = 30;
