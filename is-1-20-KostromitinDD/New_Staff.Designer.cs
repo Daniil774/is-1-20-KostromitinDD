@@ -322,6 +322,7 @@
             this.Controls.Add(this.button6);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "New_Staff";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New_Staff";
             this.Load += new System.EventHandler(this.New_Staff_Load);
             this.ResumeLayout(false);

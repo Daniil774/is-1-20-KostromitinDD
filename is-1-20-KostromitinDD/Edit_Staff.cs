@@ -53,5 +53,10 @@ namespace is_1_20_KostromitinDD
             Update();
             MessageBox.Show("Данные сотрудника успешно обновлены.");
         }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
