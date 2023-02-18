@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Threading;
 
 namespace is_1_20_KostromitinDD
 {
@@ -58,17 +59,12 @@ namespace is_1_20_KostromitinDD
             // закрываем соединение с БД
             conn.Close();
         }
-        public Form1()
-        {
-            InitializeComponent();
-            textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None; //скрытие рамок у textbox
-            textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
 
-            textBox2.UseSystemPasswordChar = true; //точки вместо пароля
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        void auth_()
         {
+            this.Invoke(new MethodInvoker(() => { this.Hide(); }));
+            Anim an = new Anim();
+            an.Show();
             //Запрос в БД на предмет того, если ли строка с подходящим логином и паролем
             string sql = "SELECT * FROM Staff WHERE login_employee = @un and  pass_employee= @up";
             //Открытие соединения
@@ -99,16 +95,30 @@ namespace is_1_20_KostromitinDD
                 //Достаем данные пользователя в случае успеха
                 GetUserInfo(textBox1.Text);
                 //Закрываем форму
-
-                MainForm aut = new MainForm();
-                aut.Show();
-                this.Close();
+                Thread.Sleep(5000);
+                textBox1.Invoke(new MethodInvoker(() => {this.Close();}));
             }
             else
             {
                 //Отобразить сообщение о том, что авторизаия неуспешна
                 MessageBox.Show("Неверные данные авторизации!");
             }
+        }
+
+        public Form1()
+        {
+            InitializeComponent();
+            textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None; //скрытие рамок у textbox
+            textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+
+            textBox2.UseSystemPasswordChar = true; //точки вместо пароля
+        }
+        public delegate void ThreadStart();
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Thread thr = new Thread(auth_);
+            thr.Start();
         }
 
 

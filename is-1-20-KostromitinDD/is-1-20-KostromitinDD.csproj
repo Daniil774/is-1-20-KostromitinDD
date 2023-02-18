@@ -103,6 +103,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Anim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Anim.Designer.cs">
+      <DependentUpon>Anim.cs</DependentUpon>
+    </Compile>
     <Compile Include="Delete_Car.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +177,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Anim.resx">
+      <DependentUpon>Anim.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Car.resx">
       <DependentUpon>Car.cs</DependentUpon>
     </EmbeddedResource>
